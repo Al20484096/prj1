@@ -1,4 +1,4 @@
-FROM c73base
+FROM docker.io/erixero/centos7.3-base-image
 RUN yum install -y httpd mariadb-server mod_php php-mysql python-setuptools; yum clean all
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 COPY mysql_setup.sh /root/mysql_setup.sh
