@@ -8,5 +8,8 @@ RUN rm /root/mysql_setup.sh
 RUN easy_install supervisor
 COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 80
+COPY web.tar /var/www/html/.
+RUN cd /var/www/html;tar -xvf /var/www/html/web.tar
+RUN rm /var/www/html/web.tar
 ENTRYPOINT ["/usr/bin/supervisord","-c", "/etc/supervisord.conf"]
 
